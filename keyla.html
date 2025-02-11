@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEYLA SAAVEDRA</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #FFB6C1, #FF69B4);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            width: 80%;
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-family: 'Verdana', sans-serif;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+            font-family: 'Verdana', sans-serif;
+            font-weight: bold;
+        }
+        .btn {
+            font-size: 18px;
+            padding: 15px 25px;
+            margin: 10px;
+            cursor: pointer;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            background-color: white;
+            color: #ff69b4;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn:hover {
+            background-color: #000000;
+            color: white;
+            transform: scale(1.1);
+        }
+        .btn:active {
+            transform: scale(0.95);
+        }
+        .heart {
+            font-size: 60px;
+            color: #f40000;
+            margin: 20px 0;
+        }
+        #loveHeart {
+            display: none;
+            font-size: 100px;
+            color: #ff69b4;
+            margin-top: 30px;
+        }
+        #thankYouMessage {
+            font-size: 24px;
+            color: white;  /* Cambié el color a blanco */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="greetingMessage">¡Hola, Keyla, perdón por molestar, queria saber si...!</h1>
+        <p id="questionMessage">¿Quieres ser mi San Valentín?</p>
+        <div class="heart">💖</div>
+        <button id="btnNo" class="btn" onclick="reduceSize()">No</button>
+        <button id="btnSi" class="btn" onclick="yes()">Sí</button>
+        <div id="loveHeart">💘</div>
+        <div id="thankYouMessage"></div>
+    </div>
+
+    <script>
+        function reduceSize() {
+            let btnNo = document.getElementById("btnNo");
+            let size = parseInt(window.getComputedStyle(btnNo).fontSize);
+            if (size > 10) {
+                btnNo.style.transform = `scale(${size / 20})`;
+                btnNo.style.fontSize = `${size - 2}px`;
+            } else {
+                btnNo.style.display = "none";
+            }
+        }
+
+        function yes() {
+            document.getElementById("btnSi").style.display = "none";  // Ocultar el botón Sí
+            document.getElementById("btnNo").style.display = "none";  // Ocultar el botón No
+            document.getElementById("greetingMessage").style.display = "none";  // Ocultar el mensaje de saludo
+            document.getElementById("questionMessage").style.display = "none";  // Ocultar la pregunta
+            document.getElementById("loveHeart").style.display = "block";  // Mostrar el corazón
+            document.getElementById("thankYouMessage").innerText = "Gracias por aceptar, Zambita"; // Mostrar mensaje
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
